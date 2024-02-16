@@ -9,16 +9,22 @@ public class Practice2 {
 
         ArrayList<String> content = new ArrayList<>();
 
-        if(sc.equals("exit")) {
-            for (String s : content) {
-                System.out.println(s);
-            }
-        } else {
+        while(true) {
             System.out.println("문자를 입력해주세요. : ");
-            content.add(sc.next());
-        }
-        while(){
 
+            String text = sc.next();
+
+            if(text.equals("exit")) {
+                break;
+            }
+//            ArrayList에 입력받은 문자열 추가
+            content.add(text);
         }
+//        ArrayList에 있는 값들 출력
+        for (String s : content) {
+            System.out.println(s);
+        }
+
+        sc.close();
     }
 }

@@ -96,6 +96,11 @@ public class ArrayListEx {
         for (Student std1 : students) {
             System.out.println(std1.getName() + "(" + std1.getAge() + ")");
         }
+
+        System.out.println("students : " + students);
+//        toString을 오버라이딩 안했을 경우 : [_03_array.Student@30f39991, _03_array.Student@452b3a41, _03_array.Student@4a574795, _03_array.Student@f6f4d33]
+//        원래는 주소값이 저장되는것이 맞다.
+//        numbers는 왜 내용이 나왔을까? 자바에서 제공해주는 애들은 하나의 메소드가 안에 포함이 되어있다.
     }
 }
 
@@ -113,5 +118,18 @@ class Student {
     }
     public int getAge() {
         return age;
+    }
+
+//    toString() 메서드 오버라이드
+//    : 객체를 문자열로 표현할 때 어떻게 출력할지 정의 가능 (변수 이름으로 println 했을 때)
+//    사용자 정의 타입에서 오버라이드 하지 않으면, Object 객체의 toString() 메서드가 호출되며,
+//    이는 객체의 클래스 이름과 해시코드를 문자열로 반환 (즉, 참조값을 반환) (Ex. Student@f6f4d33)
+
+//    단, Integer 같은 클래스는 toString() 메서드가 정의되어 있어서, 문자열로 표현할 때 Integer 객체가 갖고 있는 toString 메서드 호출
+//    언어테이션 @Override
+//    ArrayList들 마다 추가를 해줘야한다. return 값을 토대로 출력.
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' + ", age = " + age;
     }
 }
